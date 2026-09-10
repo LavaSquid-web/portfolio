@@ -1,0 +1,227 @@
+/* Dark Modern Developer Theme */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+}
+
+body {
+  background-color: #0d1117;
+  color: #c9d1d9;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 8%;
+  border-bottom: 1px solid #21262d;
+  background: #161b22;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #f0f6fc;
+}
+
+.logo span {
+  color: #238636;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.8rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+  color: #f0f6fc;
+}
+
+.btn-nav {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+}
+
+/* Hero Section */
+.hero {
+  padding: 5rem 8%;
+  max-width: 950px;
+}
+
+.badge {
+  background: rgba(35, 134, 54, 0.15);
+  color: #3fb950;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #f0f6fc;
+  margin: 1.2rem 0 0.8rem 0;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #8b949e;
+  margin-bottom: 1.8rem;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.65rem 1.3rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn.primary {
+  background-color: #238636;
+  color: #ffffff;
+}
+
+.btn.secondary {
+  background-color: #21262d;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+}
+
+/* Layout & Containers */
+.container {
+  padding: 3.5rem 8%;
+}
+
+.container h2 {
+  color: #f0f6fc;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.section-desc {
+  color: #8b949e;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.grid, .project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card, .project-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+/* Card Action Links */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.card-link-sub {
+  color: #8b949e;
+  font-size: 0.8rem;
+  text-decoration: none;
+  border: 1px solid #30363d;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.card-link-sub:hover {
+  color: #f0f6fc;
+  border-color: #8b949e;
+}
+.card h3 {
+  color: #f0f6fc;
+  margin-bottom: 0.5rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.card-header h3 {
+  color: #f0f6fc;
+  font-size: 1.1rem;
+}
+
+/* Code Snippet Box */
+pre {
+  background: #0d1117;
+  border: 1px solid #21262d;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+code {
+  color: #e6edf3;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.tag-c {
+  background: rgba(210, 153, 34, 0.15);
+  color: #d29922;
+}
+
+.tag-web {
+  background: rgba(56, 139, 253, 0.15);
+  color: #58a6ff;
+}
+
+.card-link {
+  color: #58a6ff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid #21262d;
+  color: #8b949e;
+  font-size: 0.8rem;
+}
