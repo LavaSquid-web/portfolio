@@ -1,138 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miles Derek Querubin | Software Engineer & Digital Builder</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miles Derek Querubin | Software Engineer Portfolio</title>
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-card: #111827;
+            --border-color: #1f2937;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-blue: #3b82f6;
+            --code-bg: #030712;
+            --code-text: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        header {
+            max-width: 1200px;
+            margin: 0 auto 3rem auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: #10b981;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p, .card li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .card p {
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-list {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .profile-list li strong {
+            color: var(--text-main);
+        }
+
+        .badge {
+            background-color: #1e3a8a;
+            color: #93c5fd;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge.c-prog {
+            background-color: #78350f;
+            color: #fde68a;
+        }
+
+        .badge.html-css {
+            background-color: #065f46;
+            color: #a7f3d0;
+        }
+
+        .badge.media {
+            background-color: #581c87;
+            color: #e9d5ff;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9rem;
+            color: var(--code-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .code-comment { color: #6b7280; }
+        .code-keyword { color: #f472b6; }
+        .code-string { color: #34d399; }
+        .code-func { color: #60a5fa; }
+
+        .card-footer {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #1f2937;
+            border-color: var(--text-muted);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2563eb;
+        }
+
+        .grid-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="logo">Miles Derek A. Querubin<span>.</span></div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#code-vault">Code Vault</a></li>
-      <li><a href="#media">Media & Brands</a></li>
-      <li><a href="https://github.com/LavaSquid-web" target="_blank" class="btn-nav">GitHub</a></li>
-    </ul>
-  </nav>
+    <header>
+        <div class="logo">Miles Derek A. Querubin<span>.</span></div>
+        <nav>
+            <a href="#about" class="active">About</a>
+            <a href="#code-vault">Code Vault</a>
+            <a href="#media-section">Media & Brands</a>
+            <a href="https://github.com/lavasquid-web" target="_blank">GitHub</a>
+        </nav>
+    </header>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="hero-content">
-      <span class="badge">Founder & Web Developer</span>
-      <h1>Building scalable software & high-traffic media channels.</h1>
-      <p class="hero-subtitle">
-  Focused on computer science fundamentals (CS50x, CS50P, CS50B), web engineering, and content automation systems.
-</p>
-      <div class="hero-btns">
-        <a href="#code-vault" class="btn primary">Explore Code Vault</a>
-        <a href="https://github.com/LavaSquid-web" target="_blank" class="btn secondary">View GitHub</a>
-      </div>
-    </div>
-  </header>
+    <div class="container">
+        <!-- Professional Profile Card -->
+        <div class="card" id="about">
+            <div class="card-header">
+                <div>
+                    <h2>Professional Profile & Skills</h2>
+                    <p>Miles Derek Alipio Querubin is a professional Web Developer based in the Philippines.</p>
+                </div>
+                <span class="badge">Web Developer</span>
+            </div>
+            <!-- Profile Picture -->
+            <div style="margin-bottom: 1.5rem; text-align: center;">
+                <img src="pfp.jpeg" alt="Miles Derek Alipio Querubin" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 2px solid var(--accent-blue);">
+            </div>
+            
+            <p>According to his professional networks, he is a results-driven developer focusing on building responsive and user-oriented web applications, with core areas of expertise including:</p>
+            
+            <ul class="profile-list">
+                <li><strong>Web Engineering:</strong> Proficient in both front-end and back-end web development.</li>
+                <li><strong>Visual Design:</strong> Experienced in creating scalable digital designs and layouts.</li>
+                <li><strong>Modern Tech Integration:</strong> Focuses on leveraging cutting-edge web technologies, including AI integration, for digital solutions.</li>
+            </ul>
 
-  <!-- About Section -->
-  <section id="about" class="container">
-    <h2>Core Stack & Focus</h2>
-    <div class="grid">
-  <div class="card">
-    <h3>CS & Engineering</h3>
-    <p>Harvard CS50 track (CS50x, CS50P, CS50B): Algorithms, C & Python programming, memory management, and technical business strategy.</p>
-  </div>
+            <p>He offers his technical services on global freelancing networks like Freelancer.com and showcases architectural/modern design collaborations locally through regional projects.</p>
+        </div>
 
-  <div class="card">
-    <h3>Web Development</h3>
-    <p>Building clean, responsive web platforms and personal brand infrastructure using HTML5, CSS3, and JavaScript.</p>
-  </div>
-
-  <div class="card">
-    <h3>Digital Media</h3>
-    <p>Short-form video distribution, media monetization, and content automation setups.</p>
-  </div>
-</div>
-  </section>
-
-  <!-- Code & Projects Vault (Where you showcase/paste your work) -->
-  <section id="code-vault" class="container">
-    <h2>Code Vault & Projects</h2>
-    <p class="section-desc">Selected algorithms, code snippets, and live builds from my computer science journey.</p>
-    <!-- Dogtionary 2 Showcase Card -->
-<div class="project-card">
-  <div class="card-header">
-    <h3>Dogtionary 2</h3>
-    <span class="tag tag-web">JavaScript / Dynamic App</span>
-  </div>
-  <p>An interactive data-driven web app featuring structured dog breed info, custom JavaScript data structures, and responsive styling.</p>
-  
-  <!-- Code Snippet Display -->
-  <pre><code>// Sample structure from dogsData.js
-const dogDatabase = [
-  {
-    breed: "Sample Breed",
-    category: "Working",
-    image: "./dogs pic/sample.jpg"
-  }
+        <!-- Grid Row for Dogtionary 2 & World Tour Template -->
+        <div class="grid-row">
+            <!-- Dogtionary 2 Card -->
+            <div class="card" id="code-vault">
+                <div class="card-header">
+                    <div>
+                        <h2>Dogtionary 2</h2>
+                        <p>An interactive data-driven web app featuring structured dog breed info, custom JavaScript data structures, and responsive styling.</p>
+                    </div>
+                    <span class="badge">JavaScript / Dynamic App</span>
+                </div>
+                
+                <pre><code><span class="code-comment">// Sample structure from dogsData.js</span>
+<span class="code-keyword">const</span> dogDatabase = [
+    {
+        <span class="code-keyword">breed</span>: <span class="code-string">"Sample Breed"</span>,
+        <span class="code-keyword">category</span>: <span class="code-string">"Working"</span>,
+        <span class="code-keyword">image</span>: <span class="code-string">"./dogs pic/sample.jpg"</span>
+    }
 ];
 
-function loadDogData() {
-  // Renders dynamic content to index.html
+<span class="code-keyword">function</span> <span class="code-func">loadDogData</span>() {
+    <span class="code-comment">// Renders dynamic content to index.html</span>
 }</code></pre>
 
-  <!-- Live Link Buttons -->
-  <div class="card-actions">
-    <a href="https://LavaSquid-web.github.io/dogtionary-2/" target="_blank" class="card-link">Launch Live App &rarr;</a>
-    <a href="https://github.com/LavaSquid-web/dogtionary-2" target="_blank" class="card-link-sub">Source Code</a>
-  </div>
-</div>
-    
-    <div class="project-grid">
-      
-      <!-- Project Card 1: CS50 C Program -->
-      <div class="project-card">
-        <div class="card-header">
-          <h3>CS50: C Algorithmic Logic</h3>
-          <span class="tag tag-c">C Programming</span>
-        </div>
-        <p>Standard input validation and algorithm execution developed during CS50 Week 1.</p>
-        
-        <!-- Snippet Container: Paste your actual C code here -->
-        <pre><code>// CS50 Week 1 Snippet
-#include &lt;cs50.h&gt;
-#include &lt;stdio.0h&gt;
+                <div class="card-footer">
+                    <a href="https://lavasquid-web.github.io/Dogtionary/" target="_blank" class="btn btn-primary">Launch Live App &rarr;</a>
+                    <a href="https://github.com/lavasquid-web/Dogtionary" target="_blank" class="btn">Source Code</a>
+                </div>
+            </div>
 
-int main(void) {
-    printf("Initializing CS50 track...\n");
-    // Paste your logic here
+            <!-- World Tour Template Card -->
+            <div class="card" id="world-tour">
+                <div class="card-header">
+                    <div>
+                        <h2>World Tour Template</h2>
+                        <p>A fully responsive, clean travel and destination e-commerce template designed for modern travel sites.</p>
+                    </div>
+                    <span class="badge html-css">HTML / CSS / Gumroad</span>
+                </div>
+                
+                <pre><code><span class="code-comment">// Gumroad Product Listing</span>
+<span class="code-keyword">const</span> product = {
+    <span class="code-keyword">title</span>: <span class="code-string">"World Tour - Responsive Travel"</span>,
+    <span class="code-keyword">price</span>: <span class="code-string">"$50"</span>,
+    <span class="code-keyword">platform</span>: <span class="code-string">"Gumroad"</span>
+};</code></pre>
+
+                <div class="card-footer">
+                    <a href="https://lavasquid-web.github.io/World-Tour/" target="_blank" class="btn btn-primary">Launch Live App &rarr;</a>
+                    <a href="https://github.com/LavaSquid-web/World-Tour" target="_blank" class="btn">Source Code</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <!-- CS50 Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2>CS50: C Algorithmic Logic</h2>
+                        <p>Standard input validation and algorithm execution developed during CS50 Week 1.</p>
+                    </div>
+                    <span class="badge c-prog">C Programming</span>
+                </div>
+                
+                <pre><code><span class="code-comment">// CS50 Week 1 Snippet</span>
+<span class="code-keyword">#include</span> <span class="code-string">&lt;cs50.h&gt;</span>
+<span class="code-keyword">#include</span> <span class="code-string">&lt;stdio.h&gt;</span>
+
+<span class="code-keyword">int</span> <span class="code-func">main</span>(<span class="code-keyword">void</span>) {
+    <span class="code-func">printf</span>(<span class="code-string">"Initializing CS50 track...\n"</span>);
+    <span class="code-comment">// Paste your logic here</span>
 }</code></pre>
-        <a href="https://github.com/LavaSquid-web" target="_blank" class="card-link">View Repository &rarr;</a>
-      </div>
 
-      <!-- Project Card 2: Daily Clips / Web Hub -->
-      <div class="project-card">
-        <div class="card-header">
-          <h3>Personal Web Platform</h3>
-          <span class="tag tag-web">HTML / CSS</span>
+                <div class="card-footer">
+                    <a href="https://github.com/lavasquid-web" target="_blank" class="btn">View Repository &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Personal Web Platform Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2>Personal Web Platform</h2>
+                        <p>The core digital hub hosting projects, content networks, and engineering portfolios.</p>
+                    </div>
+                    <span class="badge html-css">HTML / CSS</span>
+                </div>
+                
+                <pre><code><span class="code-comment">&lt;!-- Main Portfolio Layout --&gt;</span>
+<span class="code-keyword">&lt;div</span> <span class="code-keyword">class</span>=<span class="code-string">"brand-hub"</span><span class="code-keyword">&gt;</span>
+    <span class="code-keyword">&lt;h1&gt;</span>Miles Derek Querubin<span class="code-keyword">&lt;/h1&gt;</span>
+<span class="code-keyword">&lt;/div&gt;</span></code></pre>
+
+                <div class="card-footer">
+                    <a href="https://github.com/lavasquid-web" target="_blank" class="btn">View Repository &rarr;</a>
+                </div>
+            </div>
         </div>
-        <p>The core digital hub hosting projects, content networks, and engineering portfolios.</p>
-        
-        <!-- Snippet Container: Paste HTML/CSS or web code here -->
-        <pre><code>&lt;!-- Main Portfolio Layout --&gt;
-&lt;div class="brand-hub"&gt;
-  &lt;h1&gt;Miles Derek Querubin&lt;/h1&gt;
-&lt;/div&gt;</code></pre>
-        <a href="https://github.com/LavaSquid-web" target="_blank" class="card-link">View Repository &rarr;</a>
-      </div>
 
+        <!-- Media & Brands Section -->
+        <div class="card" id="media-section">
+            <div class="card-header">
+                <div>
+                    <h2>Tech Bite Podcast & Media Networks</h2>
+                    <p>Digital content creation, technology discussions, and community platforms across digital channels.</p>
+                </div>
+                <span class="badge media">Media & Brands</span>
+            </div>
+            
+            <pre><code><span class="code-comment">// Tech Bite Content Networks</span>
+<span class="code-keyword">const</span> mediaHub = {
+    <span class="code-keyword">platform</span>: <span class="code-string">"Tech Bite Pod"</span>,
+    <span class="code-keyword">creator</span>: <span class="code-string">"Miles Derek Querubin"</span>,
+    <span class="code-keyword">status</span>: <span class="code-string">"Active"</span>
+};</code></pre>
+
+            <div class="card-footer">
+                <a href="https://youtube.com/@techbitepodofficial?si=dYl8QZkHzgsKgFpT" target="_blank" class="btn btn-primary">YouTube Channel &rarr;</a>
+                <a href="https://www.tiktok.com/@tech_bite_pod?is_from_webapp=1&sender_device=pc" target="_blank" class="btn">TikTok Profile</a>
+                <a href="https://www.facebook.com/profile.php?id=100076438623222" target="_blank" class="btn">Facebook Page</a>
+            </div>
+        </div>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Miles Derek Alipio Querubin. All rights reserved.</p>
-  </footer>
 
 </body>
 </html>
